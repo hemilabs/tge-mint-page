@@ -1,0 +1,37 @@
+{
+  "name": "tge-mint-page",
+  "version": "1.0.0",
+  "description": "A web app for minting \"The Garzik Experience\" NFT, allowing users to connect their wallet and claim their NFT.",
+  "license": "MIT",
+  "author": {
+    "email": "gonzalo@hemi.xyz",
+    "name": "Gonzalo D'Elia"
+  },
+  "scripts": {
+    "deps:check": "knip",
+    "format:check": "prettier --check .",
+    "format:write": "prettier --write .",
+    "lint": "eslint --cache .",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "postcss-import": "16.1.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "19.7.1",
+    "better-sort-package-json": "1.1.0",
+    "commitlint-config-bloq": "1.1.0",
+    "eslint": "8.57.0",
+    "eslint-config-bloq": "4.6.1",
+    "husky": "9.1.7",
+    "knip": "5.55.1",
+    "lint-staged": "15.2.10",
+    "prettier": "3.1.1",
+    "prettier-plugin-tailwindcss": "0.5.9"
+  },
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "website"
+  ]
+}
