@@ -1,5 +1,6 @@
 {
   "extends": ["bloq", "prettier"],
+  "ignorePatterns": ["website/dist/**/*"],
   "overrides": [
     {
       "extends": ["bloq/typescript", "prettier"],
