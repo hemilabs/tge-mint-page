@@ -2,13 +2,19 @@
   "name": "nft-minter",
   "version": "1.0.0",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "fork:start": "npm run fork:stop && anvil --fork-url https://rpc.hemi.network/rpc &",
+    "fork:stop": "lsof -ti:8545 | xargs kill || true",
+    "pretest": "bash ./scripts/install-foundry",
+    "test": "vitest run"
   },
   "devDependencies": {
-    "viem": "2.22.10"
+    "p-wait-for": "5.0.2",
+    "viem": "2.30.0",
+    "vite": "6.3.5",
+    "vitest": "3.1.4"
   },
   "peerDependencies": {
-    "viem": "2.22.10"
+    "viem": ">=2.30.0"
   },
   "type": "module",
   "exports": {

@@ -11,6 +11,10 @@
       ]
     },
     {
+      "extends": ["bloq/vitest"],
+      "files": ["*.{spec,test}.{js,ts}"]
+    },
+    {
       "extends": ["bloq/markdown"],
       "files": ["*.md"]
     }

@@ -1,3 +1,4 @@
 {
+  "ignoreBinaries": ["anvil", "lsof"],
   "ignoreDependencies": ["eslint-config-prettier"]
 }
