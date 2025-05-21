@@ -1,0 +1,17 @@
+{
+  "name": "nft-minter",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "viem": "2.22.10"
+  },
+  "peerDependencies": {
+    "viem": "2.22.10"
+  },
+  "type": "module",
+  "exports": {
+    ".": "./src/mint.ts"
+  }
+}
