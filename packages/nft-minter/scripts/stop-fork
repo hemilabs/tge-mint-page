@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -e
+
+PORT=8545
+
+PID=$(lsof -ti:$PORT || true)
+
+if [[ -n "$PID" ]]; then
+  echo "Stopping local fork on port $PORT (PID: $PID)..."
+  kill $PID
+  echo "Local fork stopped."
+else
+  echo "No local fork found listening on port $PORT."
+fi

@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+set -e
+
+# Check if anvil is installed
+if command -v anvil >/dev/null 2>&1; then
+  echo "[anvil] Found: $(anvil --version)"
+  echo "[anvil] Skipping installation."
+else
+  echo "[anvil] Not found. Installing Foundry (anvil)..."
+  echo "[anvil] Downloading Foundry installer..."
+  curl -L https://foundry.paradigm.xyz | bash
+  echo "[anvil] Running foundryup to install anvil and other tools..."
+  # Find foundryup binary in common install locations
+  FOUNDRYUP_BIN=$(find "$HOME/.foundry" "$HOME/.config/.foundry" -type f -name foundryup -perm -u=x 2>/dev/null | head -n 1)
+  if [ -z "$FOUNDRYUP_BIN" ]; then
+    echo "[anvil] Error: foundryup binary not found after installation."
+    exit 1
+  fi
+  "$FOUNDRYUP_BIN"
+  echo "[anvil] Installation complete. Version: $(anvil --version)"
+fi
