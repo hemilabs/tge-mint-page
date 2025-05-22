@@ -2,9 +2,10 @@
   "name": "nft-minter",
   "version": "1.0.0",
   "scripts": {
-    "fork:start": "npm run fork:stop && anvil --fork-url https://rpc.hemi.network/rpc &",
-    "fork:stop": "lsof -ti:8545 | xargs kill || true",
-    "pretest": "bash ./scripts/install-foundry",
+    "fork:start": "npm run fork:stop && bash ./scripts/start-fork",
+    "fork:stop": "bash ./scripts/stop-fork",
+    "foundry:install": "bash ./scripts/install-foundry",
+    "pretest": "npm run foundry:install && npm run fork:start",
     "test": "vitest run"
   },
   "devDependencies": {

@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -e
+
+FORK_URL="${FORK_URL:-https://rpc.hemi.network/rpc}"
+
+ANVIL_BIN=$(find "$HOME/.foundry" "$HOME/.config/.foundry" -type f -name anvil -perm -u=r 2>/dev/null | head -n 1)
+
+if [[ -z "$ANVIL_BIN" ]]; then
+  echo "Error: anvil binary not found." >&2
+  exit 1
+fi
+
+"$ANVIL_BIN" --silent --fork-url "$FORK_URL" &
+echo "Anvil fork started with URL: $FORK_URL"
+
