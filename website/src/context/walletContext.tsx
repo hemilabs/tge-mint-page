@@ -51,7 +51,14 @@ const walletsConfig = createConfig({
 export const WalletContext = ({ children }: Props) => (
   <WagmiProvider config={walletsConfig}>
     <QueryClientProvider client={queryClient}>
-      <RainbowKitProvider theme={lightTheme()}>{children}</RainbowKitProvider>
+      <RainbowKitProvider
+        theme={lightTheme({
+          accentColor: "white",
+          accentColorForeground: "black",
+        })}
+      >
+        {children}
+      </RainbowKitProvider>
     </QueryClientProvider>
   </WagmiProvider>
 );
