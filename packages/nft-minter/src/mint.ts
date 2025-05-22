@@ -33,8 +33,7 @@ const toPromiseEvent = function (
 ) {
   const emitter = new EventEmitter<Events>();
 
-  // eslint-disable-next-line promise/no-callback-in-promise
-  const promise = Promise.resolve().then(() => callback(emitter));
+  const promise = Promise.resolve(callback(emitter));
 
   return { emitter, promise };
 };
