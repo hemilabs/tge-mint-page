@@ -20,7 +20,7 @@ export const HemiLogoFull = (props: ComponentProps<"img">) => (
   <img
     alt="Hemi Logo"
     height={28}
-    src="/hemiLogoFull.svg"
+    src="./hemiLogoFull.svg"
     width={78}
     {...props}
   />
