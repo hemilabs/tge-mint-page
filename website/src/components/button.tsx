@@ -1,6 +1,6 @@
 import { ComponentProps } from "react";
 
-const commonCss = `text-sm box-border flex items-center justify-center box-border
+const commonCss = `text-sm flex items-center justify-center box-border
   rounded-lg border border-solid px-3 py-1.5 font-medium disabled:opacity-40`;
 
 const ButtonPrimary = ({
