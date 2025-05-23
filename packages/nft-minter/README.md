@@ -8,7 +8,7 @@ Besides the [root README setup](../../README.md), the following steps are needed
 
 ### Setup a local fork
 
-[Anvil](https://book.getfoundry.sh/anvil/) should be installed to use the local fork.The `pretest` script will automatically install Foundry and ensure it is set up correctly.
+[Anvil](https://book.getfoundry.sh/anvil/) should be installed to use the local fork. The `pretest` script will automatically install Foundry and ensure it is set up correctly.
 In case it fails, here's a breakdown on how to install Foundry.
 
 ```sh
