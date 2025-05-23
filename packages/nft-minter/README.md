@@ -22,15 +22,9 @@ foundryup
 anvil --version
 ```
 
-### Env variables
+### Tests
 
-Create a `.env` file with the following variable:
-
-```sh
-NFT_CONTRACT_ADDRESS="<ADDRESS>"
-```
-
-Then use the following command in the appropriate app/package to run tests:
+Use the following command in the appropriate app/package to run tests:
 
 ```sh
 npm test

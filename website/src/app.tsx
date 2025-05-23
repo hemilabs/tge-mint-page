@@ -18,9 +18,9 @@ export const App = () => (
         <PageSubtitle />
         <div className="mt-2.5 flex w-full flex-col items-center gap-3 md:flex-row md:justify-center xl:justify-start">
           <ConnectWallet className="w-full max-md:h-10 md:w-fit" />
-          <Button.Primary className="w-full max-md:h-10 md:ml-2 md:w-fit">
+          <Button className="w-full max-md:h-10 md:ml-2 md:w-fit">
             Mint NFT
-          </Button.Primary>
+          </Button>
           <p className="max-w-44 text-center text-sm font-medium text-neutral-500 xl:text-left">
             Connect your wallet to mint this NFT.
           </p>

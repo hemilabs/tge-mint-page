@@ -1,10 +1,4 @@
-import {
-  createTestClient,
-  createWalletClient,
-  defineChain,
-  http,
-  isAddress,
-} from "viem";
+import { createTestClient, createWalletClient, defineChain, http } from "viem";
 import {
   readContract,
   waitForTransactionReceipt,
@@ -14,17 +8,9 @@ import { mnemonicToAccount } from "viem/accounts";
 import { hemi } from "viem/chains";
 import { describe, expect, it, vi } from "vitest";
 
+import { nftAddress } from "../";
 import { mintNFT } from "../src/mint";
 import { erc721Abi } from "../src/abi";
-
-if (!process.env.NFT_CONTRACT_ADDRESS) {
-  throw new Error("NFT_CONTRACT_ADDRESS environment variable is not set");
-}
-if (!isAddress(process.env.NFT_CONTRACT_ADDRESS)) {
-  throw new Error("NFT_CONTRACT_ADDRESS is not a valid address");
-}
-
-const nftAddress = process.env.NFT_CONTRACT_ADDRESS;
 
 const hemiFork = defineChain({
   ...hemi,
