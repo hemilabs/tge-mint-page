@@ -2,9 +2,8 @@ import { erc721Abi, nftAddress } from "nft-minter";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { EventEmitter } from "events";
 import { mintNFT, MintEvents } from "nft-minter";
-import { createWalletClient, http } from "viem";
 import { hemi } from "viem/chains";
-import { useAccount, useReadContract } from "wagmi";
+import { useAccount, useReadContract, useWalletClient } from "wagmi";
 
 export const useImageURI = () =>
   useReadContract({
@@ -35,20 +34,17 @@ export const useMintNFT = function ({
 }: {
   on: (emitter: EventEmitter<MintEvents>) => void;
 }) {
-  const { address } = useAccount();
   const { queryKey } = useUserHasNft();
   const queryClient = useQueryClient();
+  const { data: walletClient } = useWalletClient();
 
   return useMutation({
     mutationFn() {
       const { emitter, promise } = mintNFT({
         chain: hemi,
         nftAddress,
-        walletClient: createWalletClient({
-          account: address,
-          chain: hemi,
-          transport: http(),
-        }),
+        // @ts-expect-error mismatch of types, but it works
+        walletClient,
       });
 
       emitter.on("minting-transaction-succeeded", () =>
