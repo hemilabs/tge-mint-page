@@ -22,7 +22,7 @@ runs:
   steps:
     - if: ${{ inputs.build-with-npm == 'true' }}
       uses: hemilabs/actions/setup-node-env@v1
-    - run: npm run --if-present build
+    - run: npm run --if-present --workspaces build
       shell: sh
       if: ${{ inputs.build-with-npm == 'true' }}
     - uses: actions/configure-pages@v5
