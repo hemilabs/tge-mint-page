@@ -15,6 +15,7 @@ const ButtonPrimary = ({
     duration-300 hover:border-orange-700/70 hover:from-orange-600 hover:to-orange-600
     disabled:bg-orange-600 ${className}`}
     disabled={disabled}
+    type="button"
   />
 );
 
@@ -29,6 +30,7 @@ const ButtonSecondary = ({
     text-neutral-950 hover:bg-neutral-100 disabled:bg-neutral-100 ${className} ${
       disabled ? "" : "cursor-pointer"
     }`}
+    type="button"
   />
 );
 
