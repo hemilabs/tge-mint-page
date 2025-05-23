@@ -24,7 +24,7 @@ export const PositionStatus = function ({ position, status }: Props) {
           alt="Loading icon"
           className="animate-spin"
           height={20}
-          src="/gradientLoading.png"
+          src="./gradientLoading.png"
           width={20}
         />
       )}
