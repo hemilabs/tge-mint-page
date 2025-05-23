@@ -36,6 +36,5 @@ jobs:
       - id: deployment
         uses: ./.github/actions/deploy-to-ghp
         with:
-          artifact-name: github-pages-${{ github.run_id }}
           publish-dir: website/dist
     timeout-minutes: 2
