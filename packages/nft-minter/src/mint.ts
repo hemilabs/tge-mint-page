@@ -17,21 +17,21 @@ import {
 
 import { erc721Abi } from "./abi";
 
-type Events = {
+export type MintEvents = {
   "minting-failed": [Error];
   "minting-failed-validation": [string];
   "minting-transaction-succeeded": [TransactionReceipt];
   "minting-transaction-reverted": [TransactionReceipt];
   "pre-mint": [];
   "unexpected-error": [Error];
-  "user-signed-approved": [Hash];
+  "user-signed-mint": [Hash];
   "user-signing-error": [Error];
 };
 
 const toPromiseEvent = function (
-  callback: (emitter: EventEmitter<Events>) => Promise<void>,
+  callback: (emitter: EventEmitter<MintEvents>) => Promise<void>,
 ) {
-  const emitter = new EventEmitter<Events>();
+  const emitter = new EventEmitter<MintEvents>();
 
   const promise = Promise.resolve(callback(emitter));
 
@@ -47,7 +47,7 @@ const runMintNFT = ({
   nftAddress: Address;
   walletClient: WalletClient;
 }) =>
-  async function (emitter: EventEmitter<Events>) {
+  async function (emitter: EventEmitter<MintEvents>) {
     // Create a public client for reading chain state
     const publicClient = createPublicClient({
       chain,
@@ -105,6 +105,8 @@ const runMintNFT = ({
     if (!hash) {
       return;
     }
+
+    emitter.emit("user-signed-mint", hash);
 
     const receipt = await waitForTransactionReceipt(publicClient, {
       hash,
