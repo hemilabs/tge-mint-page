@@ -11,7 +11,7 @@ export const App = () => (
   <div className="font-inter mb-5 xl:mx-auto xl:max-w-6xl">
     <Background />
     <Header />
-    <main className="md:gap-y-18 xl:px-auto flex flex-col items-center gap-y-12 px-4 pt-10 xl:mt-24 xl:flex-row xl:justify-between">
+    <main className="md:gap-y-18 flex flex-col items-center gap-y-12 px-4 pt-10 xl:mt-24 xl:flex-row xl:justify-between xl:px-0">
       <div className="gap-y-4.5 flex flex-col items-center xl:items-start">
         <Badge />
         <PageTitle />

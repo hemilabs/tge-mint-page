@@ -18,7 +18,7 @@ const MainnetBadge = () => (
 export const Header = () => (
   <header
     className="flex items-center gap-x-1 border-b border-solid
-  border-neutral-300/55 bg-white px-4 py-3 md:mx-8 md:bg-transparent xl:mx-auto"
+  border-neutral-300/55 bg-white px-4 py-3 md:mx-8 md:bg-transparent md:px-0 xl:mx-auto"
   >
     <HemiLogo className="md:hidden" />
     <HemiLogoFull className="hidden md:block" />
