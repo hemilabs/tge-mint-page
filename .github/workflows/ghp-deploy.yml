@@ -27,9 +27,15 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+      - uses: hemilabs/actions/setup-node-env@v1
+      - id: build
+        run: npm run --workspaces build
+        env:
+          VITE_WALLET_CONNECT_PROJECT_ID: ${{ vars.VITE_WALLET_CONNECT_PROJECT_ID }}
+          VITE_WALLET_CONNECT_PROJECT_NAME: ${{ vars.VITE_WALLET_CONNECT_PROJECT_NAME }}
       - id: deployment
         uses: ./.github/actions/deploy-to-ghp
         with:
-          build-with-npm: "true"
+          artifact-name: github-pages-${{ github.run_id }}
           publish-dir: website/dist
     timeout-minutes: 2
