@@ -5,6 +5,9 @@ author: Gabriel Montes
 description: Deploy a directory to GitHub Pages
 
 inputs:
+  artifact-name:
+    description: Base name for the artifact
+    default: github-pages
   build-with-npm:
     description: Run NPM build script before deploying
     default: "true"
@@ -28,9 +31,12 @@ runs:
     - uses: actions/configure-pages@v5
     - uses: actions/upload-pages-artifact@v3
       with:
+        name: ${{ inputs.artifact-name }}-${{ github.run_id }}
         path: ${{ inputs.publish-dir }}
     - id: deployment
       uses: actions/deploy-pages@v4
+      with:
+        artifact_name: ${{ inputs.artifact-name }}-${{ github.run_id }}
 
 branding:
   color: orange
