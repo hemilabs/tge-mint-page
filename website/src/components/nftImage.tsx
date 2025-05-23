@@ -7,7 +7,7 @@ export const NftImage = function () {
   if (isLoading) {
     return (
       <div className="h-96 w-64">
-        <Skeleton className="h-full w-full" containerClassName="flex-1" />
+        <Skeleton className="size-full" containerClassName="flex-1" />
       </div>
     );
   }
