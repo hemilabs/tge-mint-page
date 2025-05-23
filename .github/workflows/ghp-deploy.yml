@@ -1,0 +1,35 @@
+name: GitHub Pages Deployment
+
+on:
+  workflow_dispatch:
+  workflow_run:
+    branches:
+      - master
+    types:
+      - completed
+    workflows:
+      - JS Checks
+
+permissions:
+  id-token: write
+  pages: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: deployment
+        uses: ./.github/actions/deploy-to-ghp
+        with:
+          build-with-npm: "true"
+          publish-dir: website/dist
+    timeout-minutes: 2
