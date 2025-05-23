@@ -28,8 +28,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: hemilabs/actions/setup-node-env@v1
-      - id: build
-        run: npm run --workspaces build
+      - run: cd website && npm run build
         env:
           VITE_WALLET_CONNECT_PROJECT_ID: ${{ vars.VITE_WALLET_CONNECT_PROJECT_ID }}
           VITE_WALLET_CONNECT_PROJECT_NAME: ${{ vars.VITE_WALLET_CONNECT_PROJECT_NAME }}
