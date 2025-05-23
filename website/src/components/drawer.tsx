@@ -1,5 +1,3 @@
-"use client";
-
 import { useOnClickOutside } from "hooks/useOnClickOutside";
 import { useOnKeyUp } from "hooks/useOnKeyUp";
 import { ComponentType } from "react";
@@ -10,13 +8,13 @@ import { CloseIcon } from "./icons/closeIcon";
 type Props = {
   children: React.ReactNode;
   container?: HTMLElement;
-  onClose?: () => void;
+  onClose?: VoidFunction;
   overlay?: ComponentType;
 };
 
 const Overlay = () => (
   <div
-    className="fixed bottom-0 left-0 right-0 top-0 z-20 h-full w-full bg-neutral-950 bg-opacity-[0.08] md:rounded-2xl"
+    className="fixed bottom-0 left-0 right-0 top-0 z-20 size-full bg-neutral-950 bg-opacity-[0.08] md:rounded-2xl"
     style={{
       background:
         "linear-gradient(112deg, rgba(10, 10, 10, 0.00) 0%, rgba(10, 10, 10, 0.24) 71.28%)",
@@ -74,7 +72,7 @@ export const DrawerTopSection = ({
         onClick={onClose}
         type="button"
       >
-        <CloseIcon className="h-full w-full [&>path]:hover:stroke-black" />
+        <CloseIcon className="size-full [&>path]:hover:stroke-black" />
       </button>
     )}
   </div>

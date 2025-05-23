@@ -130,12 +130,10 @@ export const Step = function ({
 }: StatusStepProps & { status: ProgressStatus }) {
   const StatusStep = statusMap[status];
   return (
-    <>
-      <div className="relative flex flex-col gap-y-1 px-4 py-4 text-sm font-medium md:px-6">
-        <div className="flex items-start gap-x-3 py-3">
-          {StatusStep ? <StatusStep {...props} /> : null}
-        </div>
+    <div className="relative flex flex-col gap-y-1 p-4 text-sm font-medium md:px-6">
+      <div className="flex items-start gap-x-3 py-3">
+        {StatusStep ? <StatusStep {...props} /> : null}
       </div>
-    </>
+    </div>
   );
 };

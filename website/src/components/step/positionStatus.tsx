@@ -18,7 +18,7 @@ export const PositionStatus = function ({ position, status }: Props) {
   const isInProgress = status === ProgressStatus.PROGRESS;
 
   return (
-    <div className="relative h-5 w-5 rounded-full bg-orange-100">
+    <div className="relative size-5 rounded-full bg-orange-100">
       {isInProgress && (
         <img
           alt="Loading icon"
