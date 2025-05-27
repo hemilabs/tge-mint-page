@@ -33,7 +33,7 @@ jobs:
           VITE_WALLET_CONNECT_PROJECT_ID: ${{ vars.VITE_WALLET_CONNECT_PROJECT_ID }}
           VITE_WALLET_CONNECT_PROJECT_NAME: ${{ vars.VITE_WALLET_CONNECT_PROJECT_NAME }}
       - id: deployment
-        uses: ./.github/actions/deploy-to-ghp
+        uses: hemilabs/actions/deploy-to-ghp@3018c41d5e6f18de555804303ab3d0402e670f98 # PR#24
         with:
           publish-dir: website/dist
     timeout-minutes: 2
